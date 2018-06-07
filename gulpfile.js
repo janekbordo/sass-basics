@@ -1,0 +1,15 @@
+let gulp = require('gulp');
+let sass = require('gulp-sass');
+let cssbeautify = require('gulp-cssbeautify');
+
+
+gulp.task('sass', function(){
+    return gulp.src('app/scss/**/*.scss')
+    .pipe(sass())
+    .pipe(cssbeautify())
+    .pipe(gulp.dest('app/css'));
+});
+
+gulp.task('watch', function(){
+    gulp.watch('app/scss/**/*.scss',['sass']);
+});
